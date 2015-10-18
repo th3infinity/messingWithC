@@ -3,7 +3,7 @@
 #include <iostream>
 std::string name;
 std::string question;
-std::string answer = "YN";
+std::string answer = "YNL";
 std::string trash;
 
 int Test;
@@ -35,9 +35,10 @@ again:
 	std::cin >> trash;
 	newteam[0].birthdate = "01.01.2223 WTF?";
 	newteam[0].number = 1337;
-	std::cout << "Your entered Information: " << std::endl << "Firstname: " << newteam[0].firstname << std::endl << "Lastname: " << newteam[0].lastname << std::endl << "Birthdate: " << newteam[0].birthdate << std::endl << "Number: " << newteam[0].number << std::endl << std::endl;
 	reanswer:
-	std::cout << "Right? <Y/N>";
+	std::cout << "Your entered Information: " << std::endl << "Firstname: " << newteam[0].firstname << std::endl << "Lastname: " << newteam[0].lastname << std::endl << "Birthdate: " << newteam[0].birthdate << std::endl << "Number: " << newteam[0].number << std::endl << std::endl;
+	
+	std::cout << "Right? <Y/N> or View Team List? <L>";
 	std::cin >> question;
 	std::cout << std::endl;
 	if (question[0] == answer[0]) {
@@ -52,11 +53,20 @@ again:
 			Sleep(1000);
 			goto again;
 		}
-		else {
-			std::cout << "Wrong Answer!!!" << std::endl;
-			Sleep(3000);
-			goto reanswer;
+		else{
+			if(question[0] == answer[2]){
+				for(int i = 0;i < 2;i++){
+					std::cout << std::endl << "Firstname: " << newteam[i].firstname << std::endl << "Lastname: " << newteam[i].lastname << std::endl << "Birthdate: " << newteam[i].birthdate << std::endl << "Number: " << newteam[i].number << std::endl << std::endl;
+					goto reanswer;
+				}	
+			}
+			else {
+				std::cout << "Wrong Answer!!!" << std::endl;
+				Sleep(3000);
+				goto reanswer;
+			}
 		}
+		
 	}
 	if(newteam[0].firstname==newteam[1].firstname && newteam[0].lastname==newteam[1].lastname){
 		std::cout << "YOUR NAME IS A LIE!!!" << std::endl;	
