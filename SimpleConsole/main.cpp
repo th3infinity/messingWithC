@@ -19,6 +19,10 @@ struct eseteam
 eseteam newteam[2];
 
 int main() {
+	newteam[1].firstname = "Admin";
+	newteam[1].lastname = "ESE";
+	newteam[1].birthdate = "1.1.1990";
+	newteam[1].number = 0;
 again:
 	std::cout << std::endl << std::endl;
 	Test = 1;
